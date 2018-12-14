@@ -1,4 +1,8 @@
 <view>
+  <view class="flex-row" bindtap="search">
+    <icon class='flwx-view-item' size='18' type='search'></icon>
+    <input class="flwx-view-item" disabled placeholder="输入关键字搜索" />
+  </view>
   <i-cell-group>
     <i-cell wx:for="{{items}}" title="{{ item.name }}" is-link url="/pages/staff_list/staff_list?type=0&name={{ item.name }}&id={{ item.id }}"></i-cell>
   </i-cell-group>

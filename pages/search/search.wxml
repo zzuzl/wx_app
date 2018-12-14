@@ -1,0 +1,12 @@
+<!--pages/search/search.wxml-->
+<view>
+  <view class="flex-row" bindtap="search">
+    <icon class='flwx-view-item' size='18' type='search'></icon>
+    <input class="flwx-view-item" placeholder="输入关键字搜索" value='{{ searchValue }}' confirm-type='search' bindconfirm='search' />
+  </view>
+  <i-cell-group wx:if="{{ init }}">
+    <i-cell wx:for="{{searchResults}}" title="{{ item.name }}" url="/pages/detail/detail?name={{ item.name }}">
+    </i-cell>
+  </i-cell-group>
+  <i-load-more wx:if="{{ init && searchResults.length === 0 }}" tip="暂无数据" loading="{{ false }}" />
+</view>

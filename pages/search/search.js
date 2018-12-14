@@ -1,39 +1,34 @@
-// pages/company/company.js
+// pages/search/search.js
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    items: [{
-      id: 1,
-      name: '部门1',
-      pid: 0
-    }]
+    searchValue: '',
+    searchResults: [],
+    init: false
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    wx.showLoading({
-      title: '数据加载中',
-      icon: 'loading'
-    });
+
   },
 
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
   onReady: function () {
-    
+
   },
 
   /**
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-    wx.hideLoading();
+
   },
 
   /**
@@ -71,9 +66,18 @@ Page({
 
   },
   
-  search: function() {
-    wx.navigateTo({
-      url: '/pages/search/search',
-    });
+  search: function (event) {
+    console.log(event.detail.value);
+
+    if (event.detail.value) {
+      this.setData({
+        init: true,
+        searchResults: [{
+          name: 'name'
+        }]
+      })
+    }
+
+    
   }
 })

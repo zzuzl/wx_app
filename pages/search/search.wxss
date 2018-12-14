@@ -1,5 +1,4 @@
-/* pages/company/company.wxss */
-
+/* pages/search/search.wxss */
 .flex-row {
   display: flex;
   padding-top: 10px;

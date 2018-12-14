@@ -1,7 +1,8 @@
 {
   "pages": [
-    "pages/staff_list/staff_list",
+    "pages/search/search",
     "pages/company/company",
+    "pages/staff_list/staff_list",
     "pages/index/index",
     "pages/detail/detail",
     "pages/login/login",

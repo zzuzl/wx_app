@@ -1,0 +1,26 @@
+<i-cell-group>
+  <i-cell title="{{ staff.name }}" label="{{ staff.pname }}">
+    <i-icon slot="icon" size='24' type="businesscard_fill" />
+  </i-cell>
+  <i-cell title="{{ staff.phone }}">
+    <i-icon slot="icon" size='24' type="mobilephone_fill" />
+  </i-cell>
+  <i-cell title="{{ staff.email }}">
+    <i-icon slot="icon" size='24' type="eit" />
+  </i-cell>
+  <i-cell title="{{ staff.qq }}">
+    <i-icon slot="icon" size='24' type="qq" />
+  </i-cell>
+  <i-cell title="{{ staff.ex }}">
+    <i-icon slot="icon" size='24' type="weixin" />
+  </i-cell>
+  <i-cell title="{{ staff.gxtAccount }}">
+    <i-icon slot="icon" size='24' type="gxt" />
+  </i-cell>
+  <i-cell title="{{ staff.workAddress }}">
+    <i-icon slot="icon" size='24' type="coordinates_fill" />
+  </i-cell>
+  <i-cell title="{{ staff.birthday }}">
+    <i-icon slot="icon" size='24' type="shengri" />
+  </i-cell>
+</i-cell-group>

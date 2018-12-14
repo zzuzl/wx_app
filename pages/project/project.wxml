@@ -1,0 +1,7 @@
+<!--pages/project/project.wxml-->
+<!--index.wxml-->
+<view>
+  <i-cell-group>
+    <i-cell wx:for="{{items}}" title="{{ item.name }}" is-link url="/pages/staff_list/staff_list?type=1&name={{ item.name }}&id={{ item.id }}"></i-cell>
+  </i-cell-group>
+</view>

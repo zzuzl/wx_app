@@ -1,0 +1,9 @@
+<i-panel>
+  <image
+          style="width: 100px; height: 100px; background-color: #eeeeee;"
+          mode="center"
+          src="../../images/login.png"></image>
+    <i-input value='{{ email }}' title="邮箱" placeholder="邮箱" mode="wrapped"/>
+    <i-input value='{{ password }}' title="密码" placeholder="密码" type="password" mode="wrapped" />
+    <i-button bind:click="handleClick" type="primary">登录</i-button>
+</i-panel>

@@ -14,7 +14,12 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+    /*wx.getStorage({
+      key: 'search_his',
+      success(res) {
+        console.log(res.data)
+      }
+    })*/
   },
 
   /**
@@ -75,7 +80,13 @@ Page({
         searchResults: [{
           name: 'name'
         }]
-      })
+      });
+
+      /*
+      wx.setStorage({
+        key: '',
+        data: '',
+      })*/
     }
 
     

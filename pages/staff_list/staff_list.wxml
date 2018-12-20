@@ -1,20 +1,5 @@
 <!--pages/staff_list/staff_list.wxml-->
-<i-index height="100%" bind:change="onChange">
-  <i-index-item 
-    wx:for="{{ cities }}" 
-    wx:for-index="index" 
-    wx:key="{{index}}" 
-    wx:for-item="item" name="{{item.key}}">
-    <view 
-      class="i-index-demo-item" 
-      wx:for="{{item.list}}" 
-      wx:for-index="in" 
-      wx:key="{{in}}" 
-      wx:for-item="it">
-      {{it.name}}
-    </view>
-  </i-index-item>
-</i-index>
+
 <i-cell-group>
   <i-cell wx:for="{{list}}" title="{{ item.name }}" url="/pages/detail/detail?&name={{ item.name }}">
     <i-avatar slot="avatar" size="small">1</i-avatar>

@@ -1,18 +1,26 @@
 // pages/me/me.js
+
+import api from '../../api.js';
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-
+    info: {}
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+    var me = api.loadMyInfo()
+    if (me) {
+      this.setData({
+        info: me
+      })
+    }
+    
   },
 
   /**
@@ -62,5 +70,9 @@ Page({
    */
   onShareAppMessage: function () {
 
+  },
+
+  logout: function() {
+    api.logout()
   }
 })

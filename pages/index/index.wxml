@@ -1,29 +1,3 @@
 <!--index.wxml-->
 <view>
-  <i-cell-group>
-    <i-cell title="只显示箭头" is-link url="/pages/staff_list/staff_list"></i-cell>
-    <i-cell title="只显示箭头" is-link></i-cell>
-    <i-cell title="只显示箭头" is-link></i-cell>
-    <i-cell title="只显示箭头" is-link></i-cell>
-    <i-cell title="只显示箭头" is-link></i-cell>
-    <i-cell title="只显示箭头" is-link></i-cell>
-    <i-cell title="只显示箭头" is-link></i-cell>
-    <i-cell title="只显示箭头" is-link></i-cell>
-    <i-cell title="只显示箭头" is-link></i-cell>
-    <i-cell title="只显示箭头" is-link></i-cell>
-    <i-cell title="只显示箭头" is-link></i-cell>
-    <i-cell title="只显示箭头" is-link></i-cell>
-    <i-cell title="只显示箭头" is-link></i-cell>
-    <i-cell title="只显示箭头" is-link></i-cell>
-    <i-cell title="只显示箭头" is-link></i-cell>
-    <i-cell title="只显示箭头" is-link></i-cell>
-    <i-cell title="只显示箭头" is-link></i-cell>
-    <i-cell title="只显示箭头" is-link></i-cell>
-    <i-cell title="只显示箭头" is-link></i-cell>
-    <i-cell title="只显示箭头" is-link></i-cell>
-    <i-cell title="只显示箭头" is-link></i-cell>
-    <i-cell title="只显示箭头" is-link></i-cell>
-    <i-cell title="只显示箭头" is-link></i-cell>
-    <i-cell title="只显示箭头" is-link></i-cell>
-  </i-cell-group>
 </view>

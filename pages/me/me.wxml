@@ -1,2 +1,28 @@
 <!--pages/me/me.wxml-->
-<text>pages/me/me.wxml</text>
+<i-cell-group>
+  <i-cell title="{{ info.name }}" label="{{ info.pname }}">
+    <i-icon slot="icon" size='24' type="businesscard_fill" />
+  </i-cell>
+  <i-cell title="{{ info.phone }}">
+    <i-icon slot="icon" size='24' type="mobilephone_fill" />
+  </i-cell>
+  <i-cell title="{{ info.email }}">
+    <i-icon slot="icon" size='24' type="eit" />
+  </i-cell>
+  <i-cell title="{{ info.qq }}">
+    <i-icon slot="icon" size='24' type="qq" />
+  </i-cell>
+  <i-cell title="{{ info.ex }}">
+    <i-icon slot="icon" size='24' type="weixin" />
+  </i-cell>
+  <i-cell title="{{ info.gxtAccount }}">
+    <i-icon slot="icon" size='24' type="gxt" />
+  </i-cell>
+  <i-cell title="{{ info.workAddress }}">
+    <i-icon slot="icon" size='24' type="coordinates_fill" />
+  </i-cell>
+  <i-cell title="{{ info.birthday }}">
+    <i-icon slot="icon" size='24' type="shengri" />
+  </i-cell>
+</i-cell-group>
+<i-button bind:click="logout" type="warning">退出</i-button>

@@ -1,4 +1,6 @@
 // pages/staff_list/staff_list.js
+
+import api from '../../api.js';
 Page({
 
   /**
@@ -17,8 +19,7 @@ Page({
    */
   onLoad: function (options) {
     wx.showLoading({
-      title: '数据加载中',
-      icon: 'loading'
+      title: '数据加载中'
     });
 
     this.setData({

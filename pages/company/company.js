@@ -1,25 +1,45 @@
 // pages/company/company.js
+
+import api from '../../api.js';
+
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    items: [{
-      id: 1,
-      name: '部门1',
-      pid: 0
-    }]
+    items: []
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    let _this = this;
+
+    if (this.items && this.items.length) {
+      return;
+    }
+
     wx.showLoading({
-      title: '数据加载中',
-      icon: 'loading'
+      title: '数据加载中'
     });
+    api.listCompany(function(res) {
+      if (res.data.success) {
+        _this.setData({
+          items: res.data.data
+        })
+      } else {
+        // todo
+      }
+
+      console.log(res.data)
+
+      wx.hideLoading()
+    }, function(err) {
+      wx.hideLoading()
+    })
+
   },
 
   /**

@@ -1,10 +1,10 @@
 {
   "pages": [
+    "pages/index/index",
     "pages/login/login",
     "pages/company/company",
     "pages/search/search",
     "pages/staff_list/staff_list",
-    "pages/index/index",
     "pages/detail/detail",
     "pages/logs/logs",
     "pages/me/me",
@@ -18,7 +18,7 @@
   },
   "tabBar": {
     "color": "#ddd",
-    "selectedColor": "#3cc51f",
+    "selectedColor": "#2d8cf0",
     "backgroundColor": "#fff",
     "borderStyle": "black",
     "list": [
@@ -43,7 +43,6 @@
     ]
   },
   "usingComponents": {
-    "i-button": "iview/dist/button/index",
     "i-cell-group": "iview/dist/cell-group/index",
     "i-cell": "iview/dist/cell/index",
     "i-panel": "iview/dist/panel/index",
@@ -51,7 +50,6 @@
     "i-icon": "iview/dist/icon/index",
     "i-avatar": "iview/dist/avatar/index",
     "i-load-more": "iview/dist/load-more/index",
-    "i-index": "iview/dist/index/index",
-    "i-index-item": "iview/dist/index-item/index"
+    "i-card": "iview/dist/card/index"
   }
 }

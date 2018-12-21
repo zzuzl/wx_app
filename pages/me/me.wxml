@@ -1,28 +1,38 @@
 <!--pages/me/me.wxml-->
-<i-cell-group>
-  <i-cell title="{{ info.name }}" label="{{ info.pname }}">
-    <i-icon slot="icon" size='24' type="businesscard_fill" />
-  </i-cell>
+<view style="display: flex;flex-direction: column;align-items: center;">
+    <view style="padding-top: 5px;font-size: 32px">{{ info.name }} ({{ info.gender === 1 ? '男':'女' }})</view>
+    <view style="color: #80848f; font-size: 24px;">{{ info.pname }}</view>
+    <view style="color: #80848f; font-size: 18px;">{{ info.type }}</view>
+</view>
+
+<i-cell-group style="margin-top: 10px;margin-bottom: 20px;">
   <i-cell title="{{ info.phone }}">
-    <i-icon slot="icon" size='24' type="mobilephone_fill" />
+    <i-icon slot="icon" size='24' type="mobilephone_fill" color="#2d8cf0"/>
   </i-cell>
   <i-cell title="{{ info.email }}">
-    <i-icon slot="icon" size='24' type="eit" />
+    <i-icon slot="icon" size='24' type="eit" color="#2d8cf0"/>
   </i-cell>
   <i-cell title="{{ info.qq }}">
-    <i-icon slot="icon" size='24' type="qq" />
+    <i-icon slot="icon" size='24' type="qq" color="#2d8cf0"/>
   </i-cell>
-  <i-cell title="{{ info.ex }}">
-    <i-icon slot="icon" size='24' type="weixin" />
+  <i-cell title="{{ info.wx }}">
+    <i-icon slot="icon" size='24' type="weixin" color="#2d8cf0"/>
   </i-cell>
   <i-cell title="{{ info.gxtAccount }}">
-    <i-icon slot="icon" size='24' type="gxt" />
+    <i-icon slot="icon" size='24' type="gxt" color="#2d8cf0"/>
   </i-cell>
   <i-cell title="{{ info.workAddress }}">
-    <i-icon slot="icon" size='24' type="coordinates_fill" />
+    <i-icon slot="icon" size='24' type="coordinates_fill" color="#2d8cf0"/>
   </i-cell>
   <i-cell title="{{ info.birthday }}">
-    <i-icon slot="icon" size='24' type="shengri" />
+    <i-icon slot="icon" size='24' type="shengri" color="#2d8cf0"/>
   </i-cell>
 </i-cell-group>
-<i-button bind:click="logout" type="warning">退出</i-button>
+<button
+  type="warn"
+  size="default"
+  bindtap="logout"
+  style='margin-top: 15px'
+  >
+退出
+</button>

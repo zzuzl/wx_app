@@ -1,4 +1,6 @@
 // pages/search/search.js
+
+import api from '../../api.js';
 Page({
 
   /**
@@ -72,23 +74,41 @@ Page({
   },
   
   search: function (event) {
+    let _this = this;
     console.log(event.detail.value);
 
     if (event.detail.value) {
-      this.setData({
-        init: true,
-        searchResults: [{
-          name: 'name'
-        }]
-      });
+      wx.showLoading({
+        title: '查询中',
+      })
+      api.search(event.detail.value, function(res) {
+        console.log(res.data)
+        if (res.data.success) {
+          if (res.data.data && res.data.data.length) {
+            res.data.data.forEach(function(item) {
+              if (item.type === 1) {
+                item.url = '/pages/detail/detail?id=' + item.id
+              } else if (item.type === 2) {
+                item.url = "/pages/staff_list/staff_list?type=0&name=" + item.title + "&id=" + item.id
+              } else if (item.type === 3) {
+                item.url = "/pages/staff_list/staff_list?type=1&name=" + item.title + "&id=" + item.id
+              }
+              
+            })
+          }
 
-      /*
-      wx.setStorage({
-        key: '',
-        data: '',
-      })*/
+          _this.setData({
+            searchResults: res.data.data,
+            init: true
+          })
+        } else {
+
+        }
+        wx.hideLoading()
+      }, function(err) {
+        console.error(err)
+        wx.hideLoading()
+      })
     }
-
-    
   }
 })

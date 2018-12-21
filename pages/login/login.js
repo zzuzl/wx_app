@@ -8,8 +8,8 @@ Page({
    * 页面的初始数据
    */
   data: {
-    email: '672399171@qq.com',
-    password: '123456.com'
+    email: '',
+    password: ''
   },
 
   /**
@@ -68,34 +68,29 @@ Page({
 
   },
 
-  handleClick: function () {
-    this.setData({
-      email: '672399171@qq.com',
-      password: '123456.com'
-    })
-
+  handleClick: function (e) {
     wx.showLoading({
       title: '登录中',
     })
 
-// todo 登录失败
-    api.login(this.data.email, this.data.password, function(res) {
-      wx.switchTab({
-        url: '/pages/company/company'
-      })
-      api.storeToken(res.header.token);
-      api.storeMyInfo(res.data.data)
-      console.log(res);
-      
+    api.login(e.detail.value.email, e.detail.value.password, function(res) {
       wx.hideLoading()
+      if (res.data.success) {
+        wx.switchTab({
+          url: '/pages/company/company'
+        })
+        api.storeToken(res.header.token);
+        api.storeMyInfo(res.data.data)
+      } else {
+        wx.showToast({
+          title: res.data.msg,
+          icon: 'none',
+          duration: 2000
+        })
+      }
     }, function(err) {
       wx.hideLoading()
+      console.log(err)
     });
-    /*
-    wx.switchTab({
-      url: '/pages/index/index'
-    })
-    */
-    
   }
 })

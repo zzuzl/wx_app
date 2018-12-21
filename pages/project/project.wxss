@@ -1,1 +1,15 @@
 /* pages/project/project.wxss */
+.flex-row {
+  display: flex;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  padding-left: 10px;
+  background-color: #f8f8f9;
+  margin-left: 10px;
+  margin-right: 10px;
+  border-radius: 5px;
+}
+
+.flwx-view-item {
+  margin-right: 10px;
+}

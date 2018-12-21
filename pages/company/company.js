@@ -15,29 +15,32 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    console.log('onLoad', new Date())
     let _this = this;
 
     if (this.items && this.items.length) {
       return;
     }
 
-    wx.showLoading({
-      title: '数据加载中'
-    });
+    let companys = api.loadItems('companys');
+
+    if (companys && companys.length) {
+      _this.setData({
+        items: companys
+      })
+    }
+
+    
     api.listCompany(function(res) {
       if (res.data.success) {
         _this.setData({
           items: res.data.data
         })
-      } else {
-        // todo
+        api.storeItems(res.data.data, 'companys')
       }
-
       console.log(res.data)
-
-      wx.hideLoading()
     }, function(err) {
-      wx.hideLoading()
+      console.error(error)
     })
 
   },
@@ -46,28 +49,28 @@ Page({
    * 生命周期函数--监听页面初次渲染完成
    */
   onReady: function () {
-    
+    console.log('onReady', new Date())
   },
 
   /**
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-    wx.hideLoading();
+    console.log('onShow', new Date())
   },
 
   /**
    * 生命周期函数--监听页面隐藏
    */
   onHide: function () {
-
+    console.log('onHide', new Date())
   },
 
   /**
    * 生命周期函数--监听页面卸载
    */
   onUnload: function () {
-
+    console.log('onUnload', new Date())
   },
 
   /**

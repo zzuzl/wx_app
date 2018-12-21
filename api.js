@@ -47,6 +47,22 @@ const Api = {
       // Do something when catch error
     }
   },
+  storeItems: function (items, key) {
+    wx.setStorage({
+      key: key,
+      data: JSON.stringify(items)
+    })
+  },
+  loadItems: function (key) {
+    try {
+      var value = wx.getStorageSync(key)
+      if (value && value.length) {
+        return JSON.parse(value);
+      }
+    } catch (e) {
+      // Do something when catch error
+    }
+  },
   login: function (email, passwd, success, fail) {
     wx.request({
       url: this.BASE + 'rest/staff/login',
@@ -67,7 +83,11 @@ const Api = {
     })
   },
   logout: function () {
-    
+    this.TOKEN = ''
+    wx.removeStorage({
+      key: 'token',
+      success: function(res) {},
+    })
   },
   listProject: function (success, fail) {
     wx.request({
@@ -99,8 +119,50 @@ const Api = {
       }
     })
   },
-  listStaff: function (page) {
-    
+  listStaff: function (page, pid, source, success, fail) {
+    wx.request({
+      url: this.BASE + 'rest/staff/findByPid?pid=' + pid + '&source=' + source + '&page=' + page,
+      header: {
+        'content-type': 'application/x-www-form-urlencoded',
+        'token': this.TOKEN
+      },
+      success(res) {
+        success && success(res)
+      },
+      fail(err) {
+        fail && fail(err)
+      }
+    })
+  },
+  search: function (key, success, fail) {
+    wx.request({
+      url: this.BASE + 'rest/search?key=' + key,
+      header: {
+        'content-type': 'application/x-www-form-urlencoded',
+        'token': this.TOKEN
+      },
+      success(res) {
+        success && success(res)
+      },
+      fail(err) {
+        fail && fail(err)
+      }
+    })
+  },
+  findById: function (id, success, fail) {
+    wx.request({
+      url: this.BASE + 'rest/staff/findById?id=' + id,
+      header: {
+        'content-type': 'application/x-www-form-urlencoded',
+        'token': this.TOKEN
+      },
+      success(res) {
+        success && success(res)
+      },
+      fail(err) {
+        fail && fail(err)
+      }
+    })
   }
 };
 

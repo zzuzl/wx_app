@@ -1,9 +1,16 @@
 <i-panel>
-  <image
-          style="width: 100px; height: 100px; background-color: #eeeeee;"
-          mode="center"
-          src="../../images/login.png"></image>
-    <i-input value='{{ email }}' title="邮箱" placeholder="邮箱" mode="wrapped"/>
-    <i-input value='{{ password }}' title="密码" placeholder="密码" type="password" mode="wrapped" />
-    <i-button bind:click="handleClick" type="primary">登录</i-button>
+  <view style='display: flex;flex-direction: column;align-items: center;margin-top: 30px'>
+    <image mode="center" src="../../images/login.png"></image>
+    <form bindsubmit='handleClick' style='width: 90%'>
+      <i-input value='{{ email }}' title="邮箱" placeholder="邮箱" name="email"  style='margin-bottom: 50px'/>
+      <i-input value='{{ password }}' title="密码" placeholder="密码" name="password" type="password" />
+      <button
+        type="primary"
+        size="default"
+        form-type='submit'
+        >
+      登录
+      </button>
+    </form>
+  </view>
 </i-panel>

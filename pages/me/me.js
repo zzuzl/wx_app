@@ -74,5 +74,8 @@ Page({
 
   logout: function() {
     api.logout()
+    wx.reLaunch({
+      url: '/pages/login/login',
+    })
   }
 })

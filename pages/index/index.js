@@ -8,13 +8,18 @@ Page({
     current: 'homepage'
   },
   onLoad: function (options) {
-    wx.showLoading({
-      title: '加载中,请稍后'
-    });
-
     api.checkLogin(function(res) {
+      if (res.data.success) {
+        api.storeToken(res.header.token)
+        wx.switchTab({
+          url: '/pages/company/company'
+        })
+      } else {
+        wx.reLaunch({
+          url: '/pages/login/login',
+        })
+      }
       console.log(res)
-      wx.hideLoading()
     })
   },
 });

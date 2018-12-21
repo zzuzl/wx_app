@@ -1,29 +1,34 @@
 // pages/detail/detail.js
+import api from '../../api.js';
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    staff: {
-      name: '姓名',
-      type: '总工',
-      pname: '项目1',
-      phone: '18810151676',
-      email: '672399171@qq.com',
-      qq: '672399171',
-      ex: 'zl672399171',
-      gxtAccount: '1234567890',
-      workAddress: '20 H',
-      birthday: '1994-10-01'
-    }
+    staff: {}
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+    let _this = this;
+    if (options.id) {
+      api.findById(options.id, function(res) {
+        if (res.data.success) {
+          _this.setData({
+            staff: res.data.data
+          })
+        }
+      }, function(err) {
+        console.error(err)
+      })
+    } else if (options.staff) {
+      this.setData({
+        staff: JSON.parse(options.staff)
+      })
+    }
   },
 
   /**

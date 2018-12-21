@@ -1,1 +1,11 @@
 /* pages/login/login.wxss */
+i-panel image {
+  width: 100px; 
+  height: 100px;
+  background-color: #eeeeee;
+}
+
+i-panel i-input {
+  width: 100%
+}
+

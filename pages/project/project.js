@@ -20,23 +20,24 @@ Page({
       return;
     }
 
-    wx.showLoading({
-      title: '数据加载中'
-    });
+    let projects = api.loadItems('projects');
+
+    if (projects && projects.length) {
+      _this.setData({
+        items: projects
+      })
+    }
+
     api.listProject(function (res) {
       if (res.data.success) {
         _this.setData({
           items: res.data.data
         })
-      } else {
-        // todo
+        api.storeItems(res.data.data, 'projects')
       }
-
       console.log(res.data)
-
-      wx.hideLoading()
     }, function (err) {
-      wx.hideLoading()
+      console.error(error)
     })
   },
 

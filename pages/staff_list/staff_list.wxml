@@ -1,9 +1,16 @@
 <!--pages/staff_list/staff_list.wxml-->
+<view>
+  <scroll-view
+    scroll-y
+    style="height: {{ height }}px;"
+    bindscrolltolower="loadMore"
+  >
+    <i-cell wx:for="{{list}}" title="{{ item.name }}" url="/pages/detail/detail?&staff={{ item._json }}">
+      <i-avatar slot="avatar" size="default" i-class="avatar-custom">{{ item.avatar }}</i-avatar>
+    </i-cell>
+    <i-load-more wx:if="{{ loading }}" />
+    <i-load-more wx:if="{{ end }}" tip="到底了" loading="{{ false }}" />
+  </scroll-view>
+  
+</view>
 
-<i-cell-group>
-  <i-cell wx:for="{{list}}" title="{{ item.name }}" url="/pages/detail/detail?&name={{ item.name }}">
-    <i-avatar slot="avatar" size="small">1</i-avatar>
-  </i-cell>
-</i-cell-group>
-<i-load-more />
-<i-load-more tip="到底了" loading="{{ false }}" />
